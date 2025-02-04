@@ -1,11 +1,11 @@
 install :
-	@echo "Installing dependencies..."
-	pip install --upgrade pip
+	@echo "Upgrading pip & Installing dependencies..."
+	python3 -m pip install --upgrade pip
 	pip install -r requirements.txt
 
-lint : install
+lint :
 	@echo "Running lint..."
-	pylint minesweeper
+	pylint --rcfile pylint.rc minesweeper
 
 tests : lint
 	@echo "Running tests..."

@@ -23,19 +23,11 @@ class Minesweeper:
             r, c = random.randint(0, self.rows - 1), random.randint(0, self.cols - 1)
             if (r, c) not in self.mines:
                 self.mines.add((r, c))
-                self.board[r][c] = "💣"
-            for r, c in self.mines:
-                for i in range(r - 1, r + 2):
-                    for j in range(c - 1, c + 2):
-                        if (
-                            0 <= i < self.rows
-                            and 0 <= j < self.cols
-                            and self.board[i][j] != "💣"
-                        ):
-                            if self.board[i][j] == "":
-                                self.board[i][j] = 1
-                            else:
-                                self.board[i][j] += 1
+                self.board[r][c] != "💣"
+                for i, j in [(i, j) for i in range(r-1, r+2) for j in range(c-1, c+2)
+                             if 0 <= i < self.rows and 0 <= j < self.cols 
+                             and self.board[i][j] != "💣"]:
+                     self.board[i][j] = 1 if self.board[i][j] == "" else self.board[i][j] + 1
 
     def reveal(self, row: int, col: int) -> str:
         """Reveal a cell on the board.

@@ -23,3 +23,6 @@ def test_reveal():
     game.reveal(2, 2)
     # Check that the cell and its neighbors are revealed
     assert game.revealed == {(2, 2)}
+
+""" def test_fail() :
+    assert False """

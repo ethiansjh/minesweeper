@@ -1,17 +1,15 @@
-.PHONY: tests
+install :
+	@echo "Installing dependencies..."
+	pip install -r requirements.txt
 
-tests :
+lint : install
+	@echo "Running lint..."
+	pylint minesweeper
+
+tests : lint
 	@echo "Running tests..."
-    PYTHONPATH=. && \
-    echo $${PYTHONPATH} && \
-    pytest -v
+	PYTHONPATH=.
+	export PYTHONPATH
+	pytest -v
 
-init_git :
-	@echo "initializing git repository..."
-	git init
-	git add .
-	git commit -m "Initial commit"
-	git branch -M main
-	git remote add origin https://github.com/ethiansjh/minesweeper.git
-	git push -u origin main
-
+.PHONY: tests lint install

@@ -1,2 +1,6 @@
 pytest
 minesweeper
+pre-commit
+black
+pylint
+isort

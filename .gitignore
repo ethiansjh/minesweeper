@@ -1,4 +1,8 @@
+# Virtualenv
+data/
+
 # Python
+.python-version
 __pycache__/
 *.py[cod]
 *$py.class
@@ -44,19 +48,7 @@ htmlcov/
 Thumbs.db
 *.log
 
-# Byte-compiled / optimized / DLL files
-.python-version
 
-# Byte-compiled / optimized / DLL files
-*.pyc
-*.pyo
-__pycache__/
 
-# C extensions
-.DS_Store
 
-# Virtualenv
-data/
 
-# Credentials
-credentials.json
